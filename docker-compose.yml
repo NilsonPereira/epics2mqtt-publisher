@@ -1,0 +1,15 @@
+version: "3.3"
+services:
+  py:
+    image: epics2mqtt:v1.0
+    container_name: epics2mqtt_py
+    network_mode: host
+    stdin_open: true
+    tty: true
+    restart: always
+    working_dir: "/script"
+    command: "./epics2mqtt.py"
+    environment:
+        - EPICS_CA_AUTO_ADDR_LIST=NO
+        - EPICS_CA_ADDR_LIST=192.168.1.10
+

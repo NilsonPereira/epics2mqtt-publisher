@@ -38,7 +38,7 @@ def main():
     while(True):
         payload = dataQ.get()
         topic = payload[0].replace(':',"/")
-        v = float(payload[1])
+        v = round(float(payload[1]),3)
         mqclient.publish(topic, payload=v, qos=0, retain=False)
 
 try:
